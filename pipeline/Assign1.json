@@ -73,6 +73,18 @@
 			},
 			"tableName": {
 				"type": "string"
+			},
+			"ServerName": {
+				"type": "string"
+			},
+			"DBName": {
+				"type": "string"
+			},
+			"User": {
+				"type": "string"
+			},
+			"pass": {
+				"type": "string"
 			}
 		},
 		"annotations": []

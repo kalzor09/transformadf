@@ -11,6 +11,24 @@
 			},
 			"tableName": {
 				"type": "String"
+			},
+			"server": {
+				"type": "String"
+			},
+			"serverName": {
+				"type": "String"
+			},
+			"serverNameLS": {
+				"type": "String"
+			},
+			"DBName": {
+				"type": "String"
+			},
+			"user": {
+				"type": "String"
+			},
+			"pass": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
