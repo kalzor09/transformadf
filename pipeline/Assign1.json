@@ -45,6 +45,22 @@
 							"tableName": {
 								"value": "@pipeline().parameters.tableName",
 								"type": "Expression"
+							},
+							"server": {
+								"value": "@pipeline().parameters.ServerName",
+								"type": "Expression"
+							},
+							"DBName": {
+								"value": "@pipeline().parameters.DBName",
+								"type": "Expression"
+							},
+							"user": {
+								"value": "@pipeline().parameters.User",
+								"type": "Expression"
+							},
+							"pass": {
+								"value": "@pipeline().parameters.pass",
+								"type": "Expression"
 							}
 						}
 					}
