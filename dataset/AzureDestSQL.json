@@ -43,6 +43,10 @@
 				"name": "HashKey",
 				"type": "nvarchar"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Cities"
+		}
 	}
 }
