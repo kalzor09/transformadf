@@ -7,9 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "transformationadf"
 		},
+		"AzureEmptyDataBase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureEmptyDataBase'"
+		},
 		"AzureSqlSampleDBLS_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlSampleDBLS'"
+		},
+		"SelfHostedSQLServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SelfHostedSQLServer'"
 		},
 		"TrialDBLS_connectionString": {
 			"type": "secureString",
@@ -42,11 +50,17 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureEmptyDataBase_connectionString": {
+						"value": "[parameters('AzureEmptyDataBase_connectionString')]"
+					},
 					"AzureSqlSampleDBLS_connectionString": {
 						"value": "[parameters('AzureSqlSampleDBLS_connectionString')]"
 					},
 					"TrialDBLS_connectionString": {
 						"value": "[parameters('TrialDBLS_connectionString')]"
+					},
+					"SelfHostedSQLServer_connectionString": {
+						"value": "[parameters('SelfHostedSQLServer_connectionString')]"
 					}
 				}
 			},

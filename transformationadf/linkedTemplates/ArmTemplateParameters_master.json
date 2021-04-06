@@ -5,7 +5,13 @@
 		"factoryName": {
 			"value": "transformationadf"
 		},
+		"AzureEmptyDataBase_connectionString": {
+			"value": ""
+		},
 		"AzureSqlSampleDBLS_connectionString": {
+			"value": ""
+		},
+		"SelfHostedSQLServer_connectionString": {
 			"value": ""
 		},
 		"TrialDBLS_connectionString": {
