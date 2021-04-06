@@ -21,7 +21,8 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "SqlServerSink"
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -67,18 +68,8 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlServerTable1",
-						"type": "DatasetReference",
-						"parameters": {
-							"SchemaName": {
-								"value": "@pipeline().parameters.schemaName",
-								"type": "Expression"
-							},
-							"tableName": {
-								"value": "@pipeline().parameters.tableName",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "AzureDestSQL",
+						"type": "DatasetReference"
 					}
 				]
 			}
