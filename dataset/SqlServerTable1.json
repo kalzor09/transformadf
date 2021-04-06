@@ -15,12 +15,6 @@
 			"server": {
 				"type": "String"
 			},
-			"serverName": {
-				"type": "String"
-			},
-			"serverNameLS": {
-				"type": "String"
-			},
 			"DBName": {
 				"type": "String"
 			},
