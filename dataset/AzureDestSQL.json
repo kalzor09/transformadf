@@ -43,10 +43,6 @@
 				"name": "HashKey",
 				"type": "nvarchar"
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "DimProduct"
-		}
+		]
 	}
 }
