@@ -1,0 +1,25 @@
+{
+	"name": "SelfHostedSQLServer",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"SourceServerName": {
+				"type": "String"
+			},
+			"SourceDatabaseName": {
+				"type": "String"
+			},
+			"SourceUserName": {
+				"type": "String"
+			},
+			"SourcePass": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=@{linkedService().SourceServerName};Initial Catalog=@{linkedService().SourceDatabaseName};User ID=@{linkedService().SourceUserName};Password=@{linkedService().SourcePass}"
+		}
+	}
+}
