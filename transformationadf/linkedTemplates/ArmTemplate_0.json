@@ -329,6 +329,10 @@
 						"SourceServerName": {
 							"value": "@dataset().server",
 							"type": "Expression"
+						},
+						"SourceDatabaseName": {
+							"value": "@dataset().DBName",
+							"type": "Expression"
 						}
 					}
 				},
