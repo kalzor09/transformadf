@@ -17,6 +17,9 @@
 		"TrialDBLS_connectionString": {
 			"value": ""
 		},
+		"SelfHostedSQLServer_properties_typeProperties_userName": {
+			"value": "@{linkedService().SourceUserName}"
+		},
 		"containerUri": {
 			"value": ""
 		},

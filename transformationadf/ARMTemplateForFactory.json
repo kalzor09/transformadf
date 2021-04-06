@@ -22,6 +22,10 @@
 		"TrialDBLS_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'TrialDBLS'"
+		},
+		"SelfHostedSQLServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().SourceUserName}"
 		}
 	},
 	"variables": {
@@ -109,22 +113,28 @@
 				],
 				"parameters": {
 					"schemaName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "dbo"
 					},
 					"tableName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "CITIES"
 					},
 					"ServerName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "LAPTOP-OQ02C1RN\\KARTIK"
 					},
 					"DBName": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "TransferDB"
 					},
 					"User": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "kartikbhat9819@gmail.com"
 					},
 					"pass": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "fightgamer7"
 					}
 				},
 				"annotations": []
@@ -430,7 +440,13 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "SelfHostedSQLServer",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"SourceServerName": {
+							"value": "@dataset().server",
+							"type": "Expression"
+						}
+					}
 				},
 				"parameters": {
 					"SchemaName": {
@@ -518,7 +534,9 @@
 				"annotations": [],
 				"type": "SqlServer",
 				"typeProperties": {
-					"connectionString": "[parameters('SelfHostedSQLServer_connectionString')]"
+					"connectionString": "[parameters('SelfHostedSQLServer_connectionString')]",
+					"userName": "[parameters('SelfHostedSQLServer_properties_typeProperties_userName')]",
+					"password": "@{linkedService().SourcePass}"
 				},
 				"connectVia": {
 					"referenceName": "SelfHosted",

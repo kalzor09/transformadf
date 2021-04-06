@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'TrialDBLS'"
 		},
+		"SelfHostedSQLServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().SourceUserName}"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -61,6 +65,9 @@
 					},
 					"SelfHostedSQLServer_connectionString": {
 						"value": "[parameters('SelfHostedSQLServer_connectionString')]"
+					},
+					"SelfHostedSQLServer_properties_typeProperties_userName": {
+						"value": "[parameters('SelfHostedSQLServer_properties_typeProperties_userName')]"
 					}
 				}
 			},
