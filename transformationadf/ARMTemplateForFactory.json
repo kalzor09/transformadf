@@ -53,8 +53,7 @@
 								"partitionOption": "None"
 							},
 							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
+								"type": "SqlServerSink"
 							},
 							"enableStaging": false,
 							"translator": {
@@ -84,9 +83,18 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "AzureDestSQL",
+								"referenceName": "SqlServerTable1",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"SchemaName": {
+										"value": "@pipeline().parameters.schemaName",
+										"type": "Expression"
+									},
+									"tableName": {
+										"value": "@pipeline().parameters.tableName",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
@@ -102,8 +110,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SqlServerTable1')]",
-				"[concat(variables('factoryId'), '/datasets/AzureDestSQL')]"
+				"[concat(variables('factoryId'), '/datasets/SqlServerTable1')]"
 			]
 		},
 		{
@@ -402,7 +409,8 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "SelfHostedSQLServer",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {}
 				},
 				"parameters": {
 					"SchemaName": {
