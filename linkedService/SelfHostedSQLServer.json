@@ -19,7 +19,9 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Data Source=@{linkedService().SourceServerName};Initial Catalog=@{linkedService().SourceDatabaseName};User ID=@{linkedService().SourceUserName};Password=@{linkedService().SourcePass}"
+			"connectionString": "Integrated Security=True;Data Source=@{linkedService().SourceServerName};Initial Catalog=@{linkedService().SourceDatabaseName}",
+			"userName": "@{linkedService().SourceUserName}",
+			"password": "@{linkedService().SourcePass}"
 		},
 		"connectVia": {
 			"referenceName": "SelfHosted",
