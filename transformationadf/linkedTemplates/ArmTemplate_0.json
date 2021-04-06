@@ -318,14 +318,25 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "SelfHostedSQLServer",
-					"type": "LinkedServiceReference",
-					"parameters": {}
+					"type": "LinkedServiceReference"
 				},
 				"parameters": {
 					"SchemaName": {
 						"type": "String"
 					},
 					"tableName": {
+						"type": "String"
+					},
+					"server": {
+						"type": "String"
+					},
+					"DBName": {
+						"type": "String"
+					},
+					"user": {
+						"type": "String"
+					},
+					"pass": {
 						"type": "String"
 					}
 				},
@@ -487,7 +498,8 @@
 								"partitionOption": "None"
 							},
 							"sink": {
-								"type": "SqlServerSink"
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
 							},
 							"enableStaging": false,
 							"translator": {
@@ -511,24 +523,31 @@
 									"tableName": {
 										"value": "@pipeline().parameters.tableName",
 										"type": "Expression"
+									},
+									"server": {
+										"value": "@pipeline().parameters.ServerName",
+										"type": "Expression"
+									},
+									"DBName": {
+										"value": "@pipeline().parameters.DBName",
+										"type": "Expression"
+									},
+									"user": {
+										"value": "@pipeline().parameters.User",
+										"type": "Expression"
+									},
+									"pass": {
+										"value": "@pipeline().parameters.pass",
+										"type": "Expression"
 									}
 								}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "SqlServerTable1",
+								"referenceName": "AzureDestSQL",
 								"type": "DatasetReference",
-								"parameters": {
-									"SchemaName": {
-										"value": "@pipeline().parameters.schemaName",
-										"type": "Expression"
-									},
-									"tableName": {
-										"value": "@pipeline().parameters.tableName",
-										"type": "Expression"
-									}
-								}
+								"parameters": {}
 							}
 						]
 					}
@@ -539,12 +558,25 @@
 					},
 					"tableName": {
 						"type": "string"
+					},
+					"ServerName": {
+						"type": "string"
+					},
+					"DBName": {
+						"type": "string"
+					},
+					"User": {
+						"type": "string"
+					},
+					"pass": {
+						"type": "string"
 					}
 				},
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SqlServerTable1')]"
+				"[concat(variables('factoryId'), '/datasets/SqlServerTable1')]",
+				"[concat(variables('factoryId'), '/datasets/AzureDestSQL')]"
 			]
 		},
 		{
