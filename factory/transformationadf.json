@@ -1,0 +1,9 @@
+{
+	"name": "transformationadf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1b91d3cf-3b23-4bd6-9f00-3e6c43510a3b",
+		"tenantId": "0912c78d-18da-43f4-bf58-bf2848b32693"
+	}
+}
